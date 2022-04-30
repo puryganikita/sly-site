@@ -1,0 +1,33 @@
+@import "./src/styles/includes/variables";
+
+.GlitchText__1 {
+  $top_show: 50%;
+  position: absolute;
+  z-index: 89;
+  color: rgba(#fff, .5);
+  clip-path: polygon(0 $top_show, 99% $top_show, 100% 100%, 0% 100%);
+  transform: translate(-10px, 10px);
+}
+
+.GlitchText__2 {
+  position: absolute;
+  font-size: inherit;
+  color: inherit;
+  transform: translate(10px);
+  clip-path: polygon(0 20%, 100% 20%, 100% 40%, 0 40%);
+  z-index: 89;
+}
+
+$offset: 60%;
+
+.GlitchText__3 {
+  clip-path: polygon(0 $offset, 100% $offset, 100% 100%, 0 100%);
+}
+
+.GlitchText__4 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  clip-path: polygon(0 0, 100% 0, 100% $offset, 0 $offset);
+  transform: translateX(20px);
+}

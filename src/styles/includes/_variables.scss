@@ -1,0 +1,115 @@
+//
+//  Palette
+//
+$primary: #f4ef00;
+$secondary: #fff;
+$darkPrimary: darken($primary, 45%);
+$red: #DD4F61;
+
+// background
+$bg-primary: #F7F7F7;
+$bg-secondary: #201C1D;
+$bg-tertiary: linear-gradient(131.29deg, #FF6A8F 5.12%, #FF6276 52.07%, #F53838 100%);
+$bg-quaternary: #F7F5F5;
+$bg-fivefold: #FCFCFC;
+
+// font
+$c-primary: #201C1D;
+$c-secondary: #201C1D;
+$c-tertiary: #FCFCFC;
+$c-quaternary: #AFACAC;
+
+// input
+$inputBorderColor: #222;
+
+// main colors
+$black: #000;
+$white: #fff;
+$purple: #B150C4;
+$orange: #F2994A;
+$yellow: #f6ca2b;
+$red: #f15c5c;
+$green: #30B46F;
+$blue: #1ea3f3;
+$gray: #828282;
+
+$redLight: lighten($red, 20%);
+$greenLight: lighten($green, 40%);
+
+//
+// Colors map
+//
+$colors-map: (
+    blue: $blue,
+    purple: $purple,
+    orange: $orange,
+    yellow: $yellow,
+    red: $red,
+    green: $green,
+    gray: $gray,
+    black: #0F0F0F,
+    white: $white,
+    primary: $primary,
+);
+
+//
+//  Spacing
+//
+$spacer: 20px;
+$spacer-map: (
+    0: $spacer * 0,     // 0px
+    1: $spacer * 0.25,
+    2: $spacer * 0.50,  // 10px
+    3: $spacer * 0.75,
+    4: $spacer,         // 20px
+    5: $spacer * 1.25,
+    6: $spacer * 1.50,  // 30px
+    7: $spacer * 1.75,
+    8: $spacer * 2,     // 40px
+    9: $spacer * 2.25,
+    10: $spacer * 2.5,  // 50px
+    11: $spacer * 2.75,
+    12: $spacer * 3     // 60px
+);
+
+//
+// Fonts
+//
+$primaryFont: 'Montserrat';
+$secondaryFont: Arial;
+$defaultFont: $primaryFont;
+
+//
+// Font sizes
+//
+$fz-ubig: 40px;
+$fz-big: 36px;
+$fz-semibig: 30px;
+$fz-middle: 20px;
+$fz-regular: 18px;
+$fz-small: 16px;
+$fz-light: 14px;
+$fz-map: (
+    1: $fz-light,
+    2: $fz-small,
+    3: $fz-regular,
+    4: $fz-middle,
+    5: $fz-semibig,
+    6: $fz-big,
+    7: $fz-ubig
+);
+
+//
+// border-radius
+//
+$br-default: 10px;
+$br-circle: 50%;
+$br-map: (
+    default: $br-default,
+    circle: $br-circle,
+);
+
+//
+// etc
+//
+$transition-default: .1s;
