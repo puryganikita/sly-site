@@ -32,10 +32,11 @@ const GlitchText = ({
 
     useEffect(() => {
         const intervals = [
-            glitch(1000, 100,  setToggle),
+            glitch(2500, 50,  setToggle),
+            glitch(3500, 100,  setToggle),
             glitch(1500, 50,  setToggle1),
-            glitch(3000, 200,  setToggle2),
-            glitch(3000, 200,  setToggle3),
+            glitch(2000, 250,  setToggle2),
+            glitch(2000, 250,  setToggle3),
         ]
 
         return () => {
