@@ -4,40 +4,45 @@ import cn from 'classnames'
 // styles
 import styles from './index.module.scss'
 
+interface IOptionsProps {
+    interval: number,
+    timeout: number,
+    class: any,
+}
+
 interface IProps {
-    children: React.ReactNode
+    children: React.ReactNode,
+    options: IOptionsProps[],
 }
 
 interface IGlitch {
-    (interval: number, timeout: number, callback: (val: boolean) => void): any
+    (interval: number, timeout: number, _class: any): any
 }
 
 const GlitchText = ({
-    children
+    children,
+    options,
 }: IProps) => {
-    const [toggle, setToggle] = useState(false)
-    const [toggle1, setToggle1] = useState(false)
-    const [toggle2, setToggle2] = useState(false)
-    const [toggle3, setToggle3] = useState(false)
+    const [classes, setClasses] = useState<any>([])
 
-    const glitch: IGlitch = (_interval, _timeout, _callback) => {
+    const glitch: IGlitch = (_interval, _timeout, _class) => {
         return setInterval(() => {
-            _callback(true)
+            setClasses((classes: any) => [...classes, _class])
 
             setTimeout(() => {
-                _callback(false)
+                setClasses((classes: any) => (
+                    [...classes].splice(classes.findIndex((glitchClass: string) => glitchClass === _class), 1)
+                ))
             }, _timeout)
         }, _interval)
     }
 
     useEffect(() => {
-        const intervals = [
-            glitch(2500, 50,  setToggle),
-            glitch(3500, 100,  setToggle),
-            glitch(1500, 50,  setToggle1),
-            glitch(2000, 250,  setToggle2),
-            glitch(2000, 250,  setToggle3),
-        ]
+        const intervals = [glitch(2000, 1000, styles.GlitchText__3)]
+
+        options.forEach(option => {
+            intervals.push(glitch(option.interval, option.timeout, option.class))
+        })
 
         return () => {
             for (const interval of intervals) {
@@ -48,10 +53,12 @@ const GlitchText = ({
 
     return (<>
         <div>
-            {toggle && <span className={cn(styles.GlitchText__1)}>{children}</span>}
-            {toggle1 && <span className={cn(styles.GlitchText__2)}>{children}</span>}
-            <span className={cn({[styles.GlitchText__3]: toggle2})}>{children}</span>
-            {toggle3 && <span className={cn(styles.GlitchText__4)}>{children}</span>}
+            {
+                classes.length > 0 && classes.map((glitchClass: any, index: number) => (
+                    <span className={cn(glitchClass)} key={index}>{children}</span>
+                ))
+            }
+            <span className={cn({[styles.GlitchText__3]: classes.includes(styles.GlitchText__3)})}>{children}</span>
         </div>
     </>)
 }
