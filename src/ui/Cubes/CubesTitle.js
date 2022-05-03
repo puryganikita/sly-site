@@ -5,13 +5,9 @@ import cn from 'classnames'
 import styles from './index.module.scss'
 import GlitchText from "../GlitchText/GlitchText";
 
-interface IProps {
-    children: React.ReactNode
-}
-
 const CubesTitle = ({
     children
-}: IProps) => {
+}) => {
     const glitchOptions = useMemo(() => [
         {
             interval: 2500,

@@ -5,7 +5,7 @@ import cn from 'classnames'
 import styles from './index.module.scss'
 import CubesTitle from "./CubesTitle";
 
-const Cubes = (props: any) => {
+const Cubes = props => {
     return (<>
         <div className={cn('d-flex ai-center jc-center', styles.Cubes)}>
             <CubesTitle>Sly site</CubesTitle>

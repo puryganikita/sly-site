@@ -1,9 +1,9 @@
 import React from 'react'
 
-// ui 
+// ui
 import Cubes from '../../ui/Cubes/Cubes'
 
-const HomePage = (props: any) => {
+const HomePage = props => {
     return (<>
         <Cubes/>
     </>)

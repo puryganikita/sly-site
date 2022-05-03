@@ -4,34 +4,19 @@ import cn from 'classnames'
 // styles
 import styles from './index.module.scss'
 
-interface IOptionsProps {
-    interval: number,
-    timeout: number,
-    class: any,
-}
-
-interface IProps {
-    children: React.ReactNode,
-    options: IOptionsProps[],
-}
-
-interface IGlitch {
-    (interval: number, timeout: number, _class: any): any
-}
-
 const GlitchText = ({
     children,
     options,
-}: IProps) => {
-    const [classes, setClasses] = useState<any>([])
+}) => {
+    const [classes, setClasses] = useState([])
 
-    const glitch: IGlitch = (_interval, _timeout, _class) => {
+    const glitch = (_interval, _timeout, _class) => {
         return setInterval(() => {
-            setClasses((classes: any) => [...classes, _class])
+            setClasses(classes => [...classes, _class])
 
             setTimeout(() => {
-                setClasses((classes: any) => (
-                    [...classes].splice(classes.findIndex((glitchClass: string) => glitchClass === _class), 1)
+                setClasses(classes => (
+                    [...classes].splice(classes.findIndex(glitchClass => glitchClass === _class), 1)
                 ))
             }, _timeout)
         }, _interval)
@@ -54,7 +39,7 @@ const GlitchText = ({
     return (<>
         <div>
             {
-                classes.length > 0 && classes.map((glitchClass: any, index: number) => (
+                classes.length > 0 && classes.map((glitchClass, index) => (
                     <span className={cn(glitchClass)} key={index}>{children}</span>
                 ))
             }
